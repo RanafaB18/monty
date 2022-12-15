@@ -40,4 +40,3 @@ int main(int argc, char **argv)
 	end_frees(stack, line, file);
 	return (EXIT_SUCCESS);
 }
-

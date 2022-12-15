@@ -26,4 +26,3 @@ void end_frees(stack_t *stack, char *line, FILE *file)
 	free(line);
 	fclose(file);
 }
-
