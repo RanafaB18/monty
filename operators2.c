@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 /**
  * is_numeric_string - subtract
  * @str: string
