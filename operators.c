@@ -13,7 +13,6 @@ void push(stack_t **stack, unsigned int line_number)
 	if (argument == NULL || is_numeric_string(argument) == 0)
 	{
 		free(*stack);
-		printf("Argument is %s\n", argument);
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
