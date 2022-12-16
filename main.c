@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 	while (getline(&line, &line_size, file) != -1)
 	{
 		line_number++;
-		if (line[0] == '#')
+		if line &&(line[0] == '#')
 			continue;
 		instruction = strtok(line, " \n\t\r");
 		global_arg.arg = strtok(NULL, " \n\t\r");
