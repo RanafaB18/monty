@@ -6,6 +6,7 @@
  */
 void queue(stack_t **stack, unsigned int line_number)
 {
+	(void) line_number;
 	*stack = NULL;
 }
 /**
@@ -15,5 +16,6 @@ void queue(stack_t **stack, unsigned int line_number)
  */
 void _stack(stack_t **stack, unsigned int line_number)
 {
+	(void) line_number;
 	*stack = NULL;
 }
