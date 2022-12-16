@@ -55,7 +55,7 @@ void pall(stack_t **stack, unsigned int line_number)
 	}
 }
 /**
- * pint - print integer
+ * _pint - print integer
  * @stack: stack
  * @line_number: line number
  */
