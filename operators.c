@@ -59,7 +59,7 @@ void pall(stack_t **stack, unsigned int line_number)
  * @stack: stack
  * @line_number: line number
  */
-void pint(stack_t **stack, unsigned int line_number)
+void _pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
