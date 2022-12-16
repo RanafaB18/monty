@@ -36,7 +36,7 @@ int trim_and_count_spaces(char *str)
 		}
 	}
 
-	return count;
+	return (count);
 }
 /**
  * main - main entry
