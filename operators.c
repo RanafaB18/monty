@@ -42,8 +42,13 @@ void push(stack_t **stack, unsigned int line_number)
 void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
+	char *argument = global_arg.arg;
 	(void)line_number;
 
+	if (argument)
+	{
+		error_unknown(line_number, "pall");
+	}
 	if (*stack == NULL || !stack)
 	{
 		return;
