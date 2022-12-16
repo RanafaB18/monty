@@ -7,7 +7,20 @@
 int is_numeric_string(char *str)
 {
 	int i;
+	int negative;
 
+	if (str[0] == '\0')
+	{
+		return (0);
+	}
+
+	negative = 0;
+	if (str[0] == '-')
+	{
+		negative += 1;
+		negative = 1;
+		str++;
+	}
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (!isdigit(str[i]))
@@ -58,7 +71,7 @@ instruction_t *findOpCode(char *instruction, instruction_t *instr)
  * Return: 1 if it executes else 0
  */
 int executeOpCodes(char *instruction, stack_t **stack,
-		unsigned int line_number)
+				   unsigned int line_number)
 {
 	instruction_t *instr;
 	instruction_t instructions[] = {
