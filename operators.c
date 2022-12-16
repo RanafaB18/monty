@@ -73,7 +73,8 @@ void _pint(stack_t **stack, unsigned int line_number)
 	argument = global_arg.arg;
 	if (argument)
 	{
-		error_unknown(line_number, "pint");
+		fprintf(stderr, "Error\n");
+		exit(EXIT_FAILURE);
 	}
 	if (*stack == NULL)
 	{
