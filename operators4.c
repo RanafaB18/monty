@@ -62,6 +62,13 @@ void rotr(stack_t **stack, unsigned int line_number)
  */
 void _add(stack_t **stack, unsigned int line_number)
 {
+	char *argument;
+
+	argument = global_arg.arg;
+	if (argument)
+	{
+		error_unknown(line_number, "pall");
+	}
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
