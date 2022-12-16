@@ -79,13 +79,24 @@ void _add(stack_t **stack, unsigned int line_number)
  */
 void _mul(stack_t **stack, unsigned int line_number)
 {
-	if (*stack == NULL || (*stack)->next == NULL)
+	stack_t *h;
+	int len = 0, aux;
+
+	h = *stack;
+	while (h)
 	{
-		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
+		h = h->next;
+		len++;
+	}
+	if (len < 2)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
-	(*stack)->next->n *= (*stack)->n;
-	(*stack) = (*stack)->next;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
+	h = *stack;
+	aux = h->next->n * h->n;
+	h->next->n = aux;
+	*stack = h->next;
+	free(h);
 }
