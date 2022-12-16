@@ -16,6 +16,7 @@ void error_usage(void)
  */
 void error_unknown(unsigned int line_number, char *instruction)
 {
+	printf("instruction in unknown: %s\n", instruction);
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, instruction);
 	exit(EXIT_FAILURE);
 }

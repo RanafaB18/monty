@@ -1,4 +1,3 @@
-push 1
-push a
-push 3
+push 2
+pushp 3
 pall

@@ -28,13 +28,14 @@ int main(int argc, char **argv)
 		if (line[0] == '#')
 			continue;
 		instruction = strtok(line, " \n\t\r");
-		global_arg.arg = strtok(NULL, " \n\t\r");
+		global_arg.arg = strtok(NULL, " \n\t\r");	
 		if (instruction == NULL)
 			continue;
 		if (executeOpCodes(instruction, &stack, line_number) == 0)
-		{
+		{	
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, instruction);
 			end_frees(stack, line, file);
-			error_unknown(line_number, instruction);
+			exit(EXIT_FAILURE);
 		}
 	}
 	end_frees(stack, line, file);
