@@ -41,10 +41,12 @@ void push(stack_t **stack, unsigned int line_number)
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
+	char *argument;
 	stack_t *current = *stack;
-	char *argument = global_arg.arg;
 	(void)line_number;
 
+
+	argument = global_arg.arg;
 	if (argument)
 	{
 		error_unknown(line_number, "pall");
@@ -66,6 +68,13 @@ void pall(stack_t **stack, unsigned int line_number)
  */
 void _pint(stack_t **stack, unsigned int line_number)
 {
+	char *argument;
+
+	argument = global_arg.arg;
+	if (argument)
+	{
+		error_unknown(line_number, "pint");
+	}
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
