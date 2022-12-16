@@ -77,6 +77,8 @@ int executeOpCodes(char *instruction, stack_t **stack,
 		{"pstr", pstr},
 		{"rotl", rotl},
 		{"rotr", rotr},
+		{"queue", queue},
+		{"stack", _stack},
 		{NULL, NULL}};
 	instr = findOpCode(instruction, instructions);
 	if (instr->opcode != NULL)
