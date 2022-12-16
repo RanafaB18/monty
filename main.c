@@ -1,5 +1,44 @@
 #include "monty.h"
 /**
+ * trim_and_count_spaces - remove leading and trailing spaces
+ * @str: string
+ * Return: number of spaces left in trimmed string
+*/
+int trim_and_count_spaces(char *str)
+{
+	int count;
+	int i;
+	int len;
+
+	while (isspace(*str))
+	{
+		str++;
+	}
+
+	len = strlen(str);
+	while (len > 0 && isspace(str[len - 1]))
+	{
+		len--;
+	}
+
+	str[len] = '\0';
+
+	count = 0;
+	for (i = 0; i < len; i++)
+	{
+		if (isspace(str[i]))
+		{
+			while (isspace(str[i]))
+			{
+				i++;
+			}
+			count++;
+		}
+	}
+
+	return count;
+}
+/**
  * main - main entry
  * @argc: number of arguments
  * @argv: arguments
@@ -25,7 +64,12 @@ int main(int argc, char **argv)
 	while (getline(&line, &line_size, file) != -1)
 	{
 		line_number++;
-		if (line &&line[0] == '#')
+		if (trim_and_count_spaces(line) > 1)
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
+		}
+		if (line[0] == '#')
 			continue;
 		instruction = strtok(line, " \n\t\r");
 		global_arg.arg = strtok(NULL, " \n\t\r");

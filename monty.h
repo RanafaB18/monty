@@ -45,6 +45,7 @@ void rotr(stack_t **stack, unsigned int line_number);
 void _mul(stack_t **stack, unsigned int line_number);
 void _stack(stack_t **stack, unsigned int line_number);
 void queue(stack_t **stack, unsigned int line_number);
+int trim_and_count_spaces(char *str);
 void free_stack(stack_t *stack);
 int is_numeric_string(char *str);
 int validFile(char *filename, FILE *file);
@@ -60,4 +61,3 @@ void error_unknown(unsigned int line_number, char *instruction);
 
 
 #endif
-
