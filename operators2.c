@@ -13,6 +13,10 @@ int is_numeric_string(char *str)
 	{
 		return (0);
 	}
+	if (str[0] == '-' && !str[1])
+	{
+		return (0);
+	}
 
 	negative = 0;
 	if (str[0] == '-')
