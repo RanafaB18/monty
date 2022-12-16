@@ -55,3 +55,20 @@ void rotr(stack_t **stack, unsigned int line_number)
 		(*stack) = (*stack)->prev;
 	}
 }
+/**
+ * _add - adds the top two elements in stack
+ * @stack: head of stack
+ * @line_number: node number
+ */
+void _add(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	(*stack)->next->n += (*stack)->n;
+	(*stack) = (*stack)->next;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
+}
