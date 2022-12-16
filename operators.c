@@ -9,6 +9,7 @@ void push(stack_t **stack, unsigned int line_number)
 	char *argument = global_arg.arg;
 	int n;
 	stack_t *new;
+
 	if (argument == NULL || is_numeric_string(argument) == 0)
 	{
 		free(*stack);
