@@ -58,7 +58,7 @@ instruction_t *findOpCode(char *instruction, instruction_t *instr)
  * Return: 1 if it executes else 0
  */
 int executeOpCodes(char *instruction, stack_t **stack,
-unsigned int line_number)
+		unsigned int line_number)
 {
 	instruction_t *instr;
 	instruction_t instructions[] = {
@@ -67,6 +67,16 @@ unsigned int line_number)
 		{"swap", swap},
 		{"nop", nop},
 		{"pall", pall},
+		{"pint", pint},
+		{"add", _add},
+		{"sub", _sub},
+		{"mul", _mul},
+		{"div", _div},
+		{"mod", _mod},
+		{"pchar", pchar},
+		{"pstr", pstr},
+		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}};
 	instr = findOpCode(instruction, instructions);
 	if (instr->opcode != NULL)
