@@ -39,6 +39,29 @@ int trim_and_count_spaces(char *str)
 	return (count);
 }
 /**
+ * check_for_comment - checks if a line is a comment
+ * @line: pointer to the line being checked
+ *
+ * Return: 1 if line is a comment, 0 otherwise
+ */
+int check_for_comment(char *line)
+{
+    int i;
+
+    if (!line)
+        return (0);
+
+    for (i = 0; line[i]; i++)
+    {
+        if (line[i] == '#')
+            return (1);
+        if (line[i] != ' ' && line[i] != '\t')
+            return (0);
+    }
+
+    return (0);
+}
+/**
  * main - main entry
  * @argc: number of arguments
  * @argv: arguments
@@ -69,7 +92,7 @@ int main(int argc, char **argv)
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
-		if (line[0] == '#')
+		if (check_for_comment(line) == 1)
 			continue;
 		instruction = strtok(line, " \n\t\r");
 		global_arg.arg = strtok(NULL, " \n\t\r");
