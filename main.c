@@ -3,7 +3,7 @@
  * trim_and_count_spaces - remove leading and trailing spaces
  * @str: string
  * Return: number of spaces left in trimmed string
-*/
+ */
 int trim_and_count_spaces(char *str)
 {
 	int count;
@@ -46,20 +46,20 @@ int trim_and_count_spaces(char *str)
  */
 int check_for_comment(char *line)
 {
-    int i;
+	int i;
 
-    if (!line)
-        return (0);
+	if (!line)
+		return (0);
 
-    for (i = 0; line[i]; i++)
-    {
-        if (line[i] == '#')
-            return (1);
-        if (line[i] != ' ' && line[i] != '\t')
-            return (0);
-    }
+	for (i = 0; line[i]; i++)
+	{
+		if (line[i] == '#')
+			return (1);
+		if (line[i] != ' ' && line[i] != '\t')
+			return (0);
+	}
 
-    return (0);
+	return (0);
 }
 /**
  * main - main entry
